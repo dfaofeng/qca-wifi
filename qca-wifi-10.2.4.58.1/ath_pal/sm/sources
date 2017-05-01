@@ -1,0 +1,50 @@
+#
+#  SOURCES file for POSH layer
+#
+
+TOP=..\..
+LMAC=$(TOP)\lmac
+ATH=$(LMAC)\ath_dev
+HAL=$(LMAC)\hal
+MP=$(TOP)\os\win_nwf
+INC=$(TOP)\include
+ASF=$(TOP)\asf
+ADF=$(TOP)\adf
+
+!include $(MP)\include\sources.inc
+
+TARGETNAME=ath_pal_sm
+TARGETPATH=$(TOP)\lib
+TARGETTYPE=LIBRARY
+
+INCLUDES= $(INCLUDES)            \
+    $(ATH);                      \
+    $(HAL);                      \
+    $(HAL)\winvista;             \
+    $(INC);                      \
+    $(MP)\include;               \
+    $(INC)\pal;                  \
+    $(ASF)\include;              \
+    $(ADF)\include\os;           \
+    $(ADF)\include\net;          \
+    $(ADF)\include\nbuf;         \
+    $(ADF)\os\win_nwf;           \
+    $(ADF)\net\win_nwf;          \
+    $(ADF)\nbuf\win_nwf;         \
+    $(SDXROOT)\net\inc;          \
+    $(DDK_INC_PATH)
+
+SOURCES=  amp_db.c\
+          bt_inp.c\
+          bt_pal.c\
+          bt_pal_init.c\
+          bt_pal_txq.c\
+          bt_pal_evt.c\
+          bt_pal_security.c\
+          bt_pal_sm.c\
+          bt_debug.c\
+          wlan_drv_intf.c\
+          pal_osapi.c\
+
+
+

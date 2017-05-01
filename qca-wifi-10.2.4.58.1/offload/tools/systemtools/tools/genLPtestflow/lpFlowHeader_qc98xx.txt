@@ -1,0 +1,156 @@
+#LitePoint Test Flow Version 1.5.1 (2011-01-12)
+
+RunMode = 0
+RepeatTimes = 1
+ExitWhenDone = 0
+ShowFailInfo = 0
+PrecisionDigitMode = 0
+RetryMode = 0
+EnableFlowCheckWarning = 0
+WIFI_11AC:
+	GLOBAL_SETTINGS ALWAYS_RUN
+		#Input Parameters:
+		>ANALYSIS_11AC_AMPLITUDE_TRACKING [Integer]  = 0 
+		>ANALYSIS_11AC_DECODE_PSDU [Integer]  = 0 
+		>ANALYSIS_11AC_FREQUENCY_CORRELATION [Integer]  = 2 
+		>ANALYSIS_11AC_FULL_PACKET_CHANNEL_EST [Integer]  = 0 
+		>ANALYSIS_11AC_MASK_ACCORDING_CBW [Integer]  = 0 
+		>ANALYSIS_11AC_PHASE_CORR [Integer]  = 1 
+		>ANALYSIS_11AC_SYM_TIMING_CORR [Integer]  = 1 
+		>ANALYSIS_11AG_AMPL_TRACK [Integer]  = 1 
+		>ANALYSIS_11AG_CH_ESTIMATE [Integer]  = 1 
+		>ANALYSIS_11AG_FREQ_SYNC [Integer]  = 2 
+		>ANALYSIS_11AG_PH_CORR_MODE [Integer]  = 2 
+		>ANALYSIS_11AG_SYM_TIM_CORR [Integer]  = 2 
+		>ANALYSIS_11B_DC_REMOVE_FLAG [Integer]  = 0 
+		>ANALYSIS_11B_EQ_TAPS [Integer]  = 1 
+		>ANALYSIS_11B_FIXED_01_DATA_SEQUENCE [Integer]  = 0 
+		>ANALYSIS_11B_METHOD_11B [Integer]  = 1 
+		>ANALYSIS_11N_AMPLITUDE_TRACKING [Integer]  = 0 
+		>ANALYSIS_11N_DECODE_PSDU [Integer]  = 0 
+		>ANALYSIS_11N_FREQUENCY_CORRELATION [Integer]  = 2 
+		>ANALYSIS_11N_FULL_PACKET_CHANNEL_EST [Integer]  = 0 
+		>ANALYSIS_11N_PHASE_CORR [Integer]  = 1 
+		>ANALYSIS_11N_SYM_TIMING_CORR [Integer]  = 1 
+		>AUTO_READING_LIMIT [Integer]  = 0 
+		>DUT_KEEP_TRANSMIT [Integer]  = 1 
+		>DUT_RX_SETTLE_TIME_MS [Integer]  = 0 
+		>DUT_TX_SETTLE_TIME_MS [Integer]  = 0 
+		>EVM_AVERAGE [Integer]  = 3 
+		>EVM_CAPTURE_TIME_11AC_HT_GF_US [Integer]  = 300 
+		>EVM_CAPTURE_TIME_11AC_HT_MF_US [Integer]  = 300 
+		>EVM_CAPTURE_TIME_11AC_NON_HT_US [Integer]  = 300 
+		>EVM_CAPTURE_TIME_11AC_VHT_US [Integer]  = 800 
+		>EVM_CAPTURE_TIME_11AG_US [Integer]  = 95 
+		>EVM_CAPTURE_TIME_11B_L_US [Integer]  = 286 
+		>EVM_CAPTURE_TIME_11B_S_US [Integer]  = 190 
+		>EVM_CAPTURE_TIME_11N_GREENFIELD_US [Integer]  = 115 
+		>EVM_CAPTURE_TIME_11N_MIXED_US [Integer]  = 500 
+		>EVM_PRE_TRIG_TIME_US [Integer]  = 3 
+		>EVM_SYMBOL_NUM [Integer]  = 18 
+		>IQ_P_TO_A_11AG_12M [Integer]  = 10 
+		>IQ_P_TO_A_11AG_18M [Integer]  = 10 
+		>IQ_P_TO_A_11AG_24M [Integer]  = 10 
+		>IQ_P_TO_A_11AG_36M [Integer]  = 10 
+		>IQ_P_TO_A_11AG_48M [Integer]  = 10 
+		>IQ_P_TO_A_11AG_54M [Integer]  = 10 
+		>IQ_P_TO_A_11AG_6M [Integer]  = 10 
+		>IQ_P_TO_A_11AG_9M [Integer]  = 10 
+		>IQ_P_TO_A_11B_11M [Integer]  = 2 
+		>IQ_P_TO_A_11B_1M [Integer]  = 2 
+		>IQ_P_TO_A_11B_2M [Integer]  = 2 
+		>IQ_P_TO_A_11B_5_5M [Integer]  = 2 
+		>IQ_P_TO_A_11N_MCS0 [Integer]  = 10 
+		>IQ_P_TO_A_11N_MCS1 [Integer]  = 10 
+		>IQ_P_TO_A_11N_MCS2 [Integer]  = 10 
+		>IQ_P_TO_A_11N_MCS3 [Integer]  = 10 
+		>IQ_P_TO_A_11N_MCS4 [Integer]  = 10 
+		>IQ_P_TO_A_11N_MCS5 [Integer]  = 10 
+		>IQ_P_TO_A_11N_MCS6 [Integer]  = 10 
+		>IQ_P_TO_A_11N_MCS7 [Integer]  = 10 
+		>MASK_DSSS_SAMPLE_INTERVAL_US [Integer]  = 286 
+		>MASK_OFDM_SAMPLE_INTERVAL_US [Integer]  = 95 
+		>PER_FRAME_COUNT_11AC [Integer]  = 500 
+		>PER_FRAME_COUNT_11AG [Integer]  = 500 
+		>PER_FRAME_COUNT_11B [Integer]  = 500 
+		>PER_FRAME_COUNT_11N [Integer]  = 500 
+		>PER_VSG_TIMEOUT_SEC [Integer]  = 20 
+		>PM_AVERAGE [Integer]  = 3 
+		>PM_DSSS_SAMPLE_INTERVAL_US [Integer]  = 100 
+		>PM_IF_FREQ_SHIFT_MHZ [Integer]  = 0 
+		>PM_OFDM_SAMPLE_INTERVAL_US [Integer]  = 20 
+		>RESET_TEST_ITEM_DURING_RETRY [Integer]  = 0 
+		>RETRY_ERROR_ITEMS [Integer]  = 0 
+		>RETRY_TEST_ITEM [Integer]  = 0 
+		>SPECTRUM_DSSS_SAMPLE_INTERVAL_US [Integer]  = 286 
+		>SPECTRUM_OFDM_SAMPLE_INTERVAL_US [Integer]  = 95 
+		>VSA_PORT [Integer]  = 2 
+		>VSA_SAVE_CAPTURE_ALWAYS [Integer]  = 0 
+		>VSA_SAVE_CAPTURE_ON_FAILED [Integer]  = 1 
+		>VSA_TRIGGER_TYPE [Integer]  = 6 
+		>VSG_PORT [Integer]  = 2 
+		>VSA_AMPLITUDE_TOLERANCE_DB [Double]  = 3.00 
+		>VSA_PRE_TRIGGER_TIME_US [Double]  = 3.00 
+		>VSA_TRIGGER_LEVEL_DB [Double]  = -25.00 
+		>VSG_MAX_POWER_11AC [Double]  = -5.00 
+		>VSG_MAX_POWER_11B [Double]  = 0.00 
+		>VSG_MAX_POWER_11G [Double]  = -5.00 
+		>VSG_MAX_POWER_11N [Double]  = -5.00 
+		>PER_WAVEFORM_DESTINATION_MAC [String]  = 000000C0FFEE 
+		>PER_WAVEFORM_PATH [String]  = ../../iqvsg 
+		>PER_WAVEFORM_PREFIX_11AC [String]  =  
+		>PER_WAVEFORM_PREFIX_11AG [String]  =  
+		>PER_WAVEFORM_PREFIX_11B [String]  =  
+		>PER_WAVEFORM_PREFIX_11N [String]  =  
+		#Return Values:
+		<ERROR_MESSAGE [String]  = <,>
+	CONNECT_IQ_TESTER ALWAYS_RUN
+		#Input Parameters:
+		>IQTESTER_CONTROL_METHOD [Integer]  = 0 
+		>IQTESTER_RECONNECT [Integer]  = 0 
+		>IQTESTER_TYPE [Integer]  = 1 
+		>IQTESTER_IP01 [String]  = 10.234.39.123 
+		>IQTESTER_IP02 [String]  =  
+		>IQTESTER_IP03 [String]  =  
+		>IQTESTER_IP04 [String]  =  
+		#Return Values:
+		<BLUETOOTH_VERSION [String]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+		<IQAPITC_VERSION [String]  = <,>
+		<IQAPI_VERSION [String]  = <,>
+		<IQMEASURE_VERSION [String]  = <,>
+		<IQTESTER_INFO [String]  = <,>
+		<IQTESTER_SERIAL_NUM_01 [String]  = <,>
+		<IQTESTER_SERIAL_NUM_02 [String]  = <,>
+		<IQTESTER_SERIAL_NUM_03 [String]  = <,>
+		<IQTESTER_SERIAL_NUM_04 [String]  = <,>
+		<IQV_ANALYSIS_VERSION [String]  = <,>
+		<IQV_MW_VERSION [String]  = <,>
+		<IQ_MAX_SIGNAL_VERSION [String]  = <,>
+		<IQ_NXN_SIGNAL_VERSION [String]  = <,>
+		<IQ_NXN_VERSION [String]  = <,>
+		<IQ_ZIGBEE_SIGNAL_VERSION [String]  = <,>
+		<TEST_MANAGER_VERSION [String]  = <,>
+	INSERT_DUT ALWAYS_RUN
+		#Input Parameters:
+		>RELOAD_DUT_DLL [Integer]  = 0 
+		>CONNECTION_STRING [String]  = 127.0.0.1 
+		>DUT_DLL_FILENAME [String]  = ATHR_11AC_MIMO.dll 
+		>EEPROM_FILENAME [String]  =  
+		>OPTION_STRING [String]  =  
+		#Return Values:
+		<DUT_VERSION [String]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+		<VDUT_VERSION [String]  = <,>
+	INITIALIZE_DUT ALWAYS_RUN
+		#Input Parameters:
+		#Return Values:
+		<DUT_DRIVER_INFO [String]  = <,>
+		<DUT_NAME [String]  = <,>
+		<ERROR_MESSAGE [String]  = <,>
+	LOAD_PATH_LOSS_TABLE ALWAYS_RUN
+		#Input Parameters:
+		>RX_PATH_LOSS_FILE [String]  = path_loss.csv 
+		>TX_PATH_LOSS_FILE [String]  = path_loss.csv 
+		#Return Values:
+		<ERROR_MESSAGE [String]  = <,>

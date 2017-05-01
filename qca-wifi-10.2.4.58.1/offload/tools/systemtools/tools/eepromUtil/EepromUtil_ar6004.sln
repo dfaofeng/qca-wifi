@@ -1,0 +1,25 @@
+ï»?Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EepromUtilBin2Txt", "EepromUtilBin2Txt_ar6004.vcproj", "{18B761B6-C3E9-4561-A4AB-FF29F403CD07}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EepromUtilTxt2Bin", "EepromUtilTxt2Bin_ar6004.vcproj", "{2D514DB5-AA0A-46EC-B8EB-A9163BA99114}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18B761B6-C3E9-4561-A4AB-FF29F403CD07}.Debug|Win32.ActiveCfg = Debug|Win32
+		{18B761B6-C3E9-4561-A4AB-FF29F403CD07}.Debug|Win32.Build.0 = Debug|Win32
+		{18B761B6-C3E9-4561-A4AB-FF29F403CD07}.Release|Win32.ActiveCfg = Release|Win32
+		{18B761B6-C3E9-4561-A4AB-FF29F403CD07}.Release|Win32.Build.0 = Release|Win32
+		{2D514DB5-AA0A-46EC-B8EB-A9163BA99114}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2D514DB5-AA0A-46EC-B8EB-A9163BA99114}.Debug|Win32.Build.0 = Debug|Win32
+		{2D514DB5-AA0A-46EC-B8EB-A9163BA99114}.Release|Win32.ActiveCfg = Release|Win32
+		{2D514DB5-AA0A-46EC-B8EB-A9163BA99114}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

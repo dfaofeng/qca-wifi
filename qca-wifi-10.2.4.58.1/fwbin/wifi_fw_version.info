@@ -1,0 +1,2 @@
+#This file shows the version of the WiFi FW bin that is available in the repo
+PKG_VERSION:=10.2.4.58.1

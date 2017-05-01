@@ -1,0 +1,35 @@
+CC  = $(TOOLPREFIX)gcc
+LD  = $(TOOLPREFIX)ld
+MDK_ROOT = $(WORKAREA)/tools/systemtools
+CFLAGS   =  -I. -I$(WORKAREA)/../include/systemtools/common/ -I./genParmTemplate/outputTemplate -DDEBUG -DLINUX -DLinux -DTEST_STANDALONE -I$(WORKAREA)/include -I$(MDK_ROOT)/src2/include -I$(MDK_ROOT)/include -I$(WORKAREA)/../include/systemtools/common -D_HOST_SIM_TESTING -D_FOR_HOST_TESTING
+
+LDFLAGS	= -shared 
+
+ifeq ($(OS),)
+OS := Linux
+endif
+
+ifeq ($(DEBUG),1)
+    CFLAGS += -g
+endif
+
+GENOUTTEMPLATE   = $(OS)/libtlvtemplate.so
+OBJS_GENTEMPSEQ  :=  $(patsubst %.c,$(OS)/%.o,$(wildcard *.c))
+
+all: dirs $(GENOUTTEMPLATE) 
+
+dirs:
+	mkdir -p $(OS)
+
+$(GENOUTTEMPLATE): $(OS) $(OBJS_GENTEMPSEQ) 
+	$(LD) $(LDFLAGS) -o $@ $(OBJS_GENTEMPSEQ)
+	#$(AR) rcs $@ $(OBJS_GENTEMPSEQ)
+
+$(OS)/%.o : %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
+clean:
+	rm -rf $(OS) 
+
+.PHONY:
+	clean all

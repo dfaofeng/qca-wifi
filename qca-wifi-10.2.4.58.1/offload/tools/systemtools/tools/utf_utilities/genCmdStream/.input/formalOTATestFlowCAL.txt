@@ -1,0 +1,492 @@
+# Sample test flow for LP integration
+# This is the input to the binary test flow generation utility
+#
+
+# Begin
+# _OP_TEST_CONFIG is a special opCode, only affecting the header in the cmdStream
+op = 255 #_OP_TEST_CONFIG
+#header= CMD_STREAM_HEADER_REPEAT_TEST | CMD_STREAM_HEADER_FAIL_RETRY;
+#headerDepValue = ((2 << FAIL_RETRY_SHIFT) & FAIL_RETRY_MASK) | (5 & REPEAT_TEST_MASK);
+header = 0;
+headerDepValue = 0;
+headerExtended  = 0;
+ 
+op = 3 #_OP_CAL
+addrMode0 = 0x1c290; 
+value0 = 0x23460000;
+mask0 =  0x3FFF0000;
+addrMode1 = 0x1c044; 
+value1 = 0x00018000;
+mask1 =  0x00038000;
+addrMode2 = 0x0042c8; 
+value2 = 0x00000005;
+mask2 =  0x00000005;
+addrMode3 = 0x629964; 
+value3 = 0x00000040;
+mask3 =  0x000000F0;
+addrMode4 = 0x62996c; 
+value4 = 0x0000040c;
+mask4 =  0x00000F0F;
+addrMode5 = 0x61c288; 
+value5 = 0x00001c00;
+mask5 =  0x00001F00;
+
+op = 0 #_OP_SYNC
+channel = 2412
+
+op = 1 #_OP_TX
+channel = 2412;
+rateMask0 = 0x0081A141; 
+pwrGainStart0 = 0x40404040
+pwrGainStart1 = 0x40404040
+pwrGainStart2 = 0x40404040
+pwrGainStart3 = 0x40404040
+pwrGainStart4 = 0x40404040
+pwrGainStart5 = 0x40404040
+pwrGainEnd0   = 0x40404040
+pwrGainEnd1   = 0x40404040
+pwrGainEnd2   = 0x40404040
+pwrGainEnd3   = 0x40404040
+pwrGainEnd4   = 0x40404040
+pwrGainEnd5   = 0x40404040
+numPackets = 22; 
+
+
+op = 0 #_OP_SYNC
+channel = 2422
+
+op = 1 #_OP_TX
+channel = 2422;
+rateMask0 = 0x0081A141; 
+pwrGainStart0 = 0x40404040
+pwrGainStart1 = 0x40404040
+pwrGainStart2 = 0x40404040
+pwrGainStart3 = 0x40404040
+pwrGainStart4 = 0x40404040
+pwrGainStart5 = 0x40404040
+pwrGainEnd0   = 0x40404040
+pwrGainEnd1   = 0x40404040
+pwrGainEnd2   = 0x40404040
+pwrGainEnd3   = 0x40404040
+pwrGainEnd4   = 0x40404040
+pwrGainEnd5   = 0x40404040
+numPackets = 22; 
+
+ 
+op = 0 #_OP_SYNC
+channel = 2427
+
+op = 1 #_OP_TX
+channel = 2427;
+rateMask0 = 0x0081A141; 
+pwrGainStart0 = 0x40404040
+pwrGainStart1 = 0x40404040
+pwrGainStart2 = 0x40404040
+pwrGainStart3 = 0x40404040
+pwrGainStart4 = 0x40404040
+pwrGainStart5 = 0x40404040
+pwrGainEnd0   = 0x40404040
+pwrGainEnd1   = 0x40404040
+pwrGainEnd2   = 0x40404040
+pwrGainEnd3   = 0x40404040
+pwrGainEnd4   = 0x40404040
+pwrGainEnd5   = 0x40404040
+numPackets = 22; 
+
+ 
+op = 0 #_OP_SYNC
+channel = 2432
+
+op = 1 #_OP_TX
+channel = 2432;
+rateMask0 = 0x0081A141; 
+pwrGainStart0 = 0x40404040
+pwrGainStart1 = 0x40404040
+pwrGainStart2 = 0x40404040
+pwrGainStart3 = 0x40404040
+pwrGainStart4 = 0x40404040
+pwrGainStart5 = 0x40404040
+pwrGainEnd0   = 0x40404040
+pwrGainEnd1   = 0x40404040
+pwrGainEnd2   = 0x40404040
+pwrGainEnd3   = 0x40404040
+pwrGainEnd4   = 0x40404040
+pwrGainEnd5   = 0x40404040
+numPackets = 22; 
+
+op = 0 #_OP_SYNC
+channel = 2437
+
+op = 1 #_OP_TX
+channel = 2437;
+rateMask0 = 0x0081A141; 
+pwrGainStart0 = 0x40404040
+pwrGainStart1 = 0x40404040
+pwrGainStart2 = 0x40404040
+pwrGainStart3 = 0x40404040
+pwrGainStart4 = 0x40404040
+pwrGainStart5 = 0x40404040
+pwrGainEnd0   = 0x40404040
+pwrGainEnd1   = 0x40404040
+pwrGainEnd2   = 0x40404040
+pwrGainEnd3   = 0x40404040
+pwrGainEnd4   = 0x40404040
+pwrGainEnd5   = 0x40404040
+numPackets = 22; 
+
+ 
+op = 0 #_OP_SYNC
+channel = 2442
+
+op = 1 #_OP_TX
+channel = 2442;
+rateMask0 = 0x0081A141; 
+pwrGainStart0 = 0x40404040
+pwrGainStart1 = 0x40404040
+pwrGainStart2 = 0x40404040
+pwrGainStart3 = 0x40404040
+pwrGainStart4 = 0x40404040
+pwrGainStart5 = 0x40404040
+pwrGainEnd0   = 0x40404040
+pwrGainEnd1   = 0x40404040
+pwrGainEnd2   = 0x40404040
+pwrGainEnd3   = 0x40404040
+pwrGainEnd4   = 0x40404040
+pwrGainEnd5   = 0x40404040
+numPackets = 22; 
+
+ 
+op = 0 #_OP_SYNC
+channel = 2447
+
+op = 1 #_OP_TX
+channel = 2447;
+rateMask0 = 0x0081A141; 
+pwrGainStart0 = 0x40404040
+pwrGainStart1 = 0x40404040
+pwrGainStart2 = 0x40404040
+pwrGainStart3 = 0x40404040
+pwrGainStart4 = 0x40404040
+pwrGainStart5 = 0x40404040
+pwrGainEnd0   = 0x40404040
+pwrGainEnd1   = 0x40404040
+pwrGainEnd2   = 0x40404040
+pwrGainEnd3   = 0x40404040
+pwrGainEnd4   = 0x40404040
+pwrGainEnd5   = 0x40404040
+numPackets = 22; 
+
+ 
+op = 0 #_OP_SYNC
+channel = 2452
+
+op = 1 #_OP_TX
+channel = 2452;
+rateMask0 = 0x0081A141; 
+pwrGainStart0 = 0x40404040
+pwrGainStart1 = 0x40404040
+pwrGainStart2 = 0x40404040
+pwrGainStart3 = 0x40404040
+pwrGainStart4 = 0x40404040
+pwrGainStart5 = 0x40404040
+pwrGainEnd0   = 0x40404040
+pwrGainEnd1   = 0x40404040
+pwrGainEnd2   = 0x40404040
+pwrGainEnd3   = 0x40404040
+pwrGainEnd4   = 0x40404040
+pwrGainEnd5   = 0x40404040
+numPackets = 22; 
+
+ 
+op = 0 #_OP_SYNC
+channel = 2457
+
+op = 1 #_OP_TX
+channel = 2457;
+rateMask0 = 0x0081A141; 
+pwrGainStart0 = 0x40404040
+pwrGainStart1 = 0x40404040
+pwrGainStart2 = 0x40404040
+pwrGainStart3 = 0x40404040
+pwrGainStart4 = 0x40404040
+pwrGainStart5 = 0x40404040
+pwrGainEnd0   = 0x40404040
+pwrGainEnd1   = 0x40404040
+pwrGainEnd2   = 0x40404040
+pwrGainEnd3   = 0x40404040
+pwrGainEnd4   = 0x40404040
+pwrGainEnd5   = 0x40404040
+numPackets = 22; 
+
+ 
+op = 0 #_OP_SYNC
+channel = 2462
+
+op = 1 #_OP_TX
+channel = 2462;
+rateMask0 = 0x0081A141; 
+pwrGainStart0 = 0x40404040
+pwrGainStart1 = 0x40404040
+pwrGainStart2 = 0x40404040
+pwrGainStart3 = 0x40404040
+pwrGainStart4 = 0x40404040
+pwrGainStart5 = 0x40404040
+pwrGainEnd0   = 0x40404040
+pwrGainEnd1   = 0x40404040
+pwrGainEnd2   = 0x40404040
+pwrGainEnd3   = 0x40404040
+pwrGainEnd4   = 0x40404040
+pwrGainEnd5   = 0x40404040
+numPackets = 22; 
+
+ 
+op = 0 #_OP_SYNC
+channel = 2467
+
+op = 1 #_OP_TX
+channel = 2467;
+rateMask0 = 0x0081A141; 
+pwrGainStart0 = 0x40404040
+pwrGainStart1 = 0x40404040
+pwrGainStart2 = 0x40404040
+pwrGainStart3 = 0x40404040
+pwrGainStart4 = 0x40404040
+pwrGainStart5 = 0x40404040
+pwrGainEnd0   = 0x40404040
+pwrGainEnd1   = 0x40404040
+pwrGainEnd2   = 0x40404040
+pwrGainEnd3   = 0x40404040
+pwrGainEnd4   = 0x40404040
+pwrGainEnd5   = 0x40404040
+numPackets = 22; 
+
+op = 0 #_OP_SYNC
+channel = 2472
+
+op = 1 #_OP_TX
+channel = 2472
+rateMask0 = 0x0081A141; 
+pwrGainStart0 = 0x40404040
+pwrGainStart1 = 0x40404040
+pwrGainStart2 = 0x40404040
+pwrGainStart3 = 0x40404040
+pwrGainStart4 = 0x40404040
+pwrGainStart5 = 0x40404040
+pwrGainEnd0   = 0x40404040
+pwrGainEnd1   = 0x40404040
+pwrGainEnd2   = 0x40404040
+pwrGainEnd3   = 0x40404040
+pwrGainEnd4   = 0x40404040
+pwrGainEnd5   = 0x40404040
+numPackets = 22; 
+
+op = 0 #_OP_SYNC
+channel = 5180
+
+op = 1 #_OP_TX
+channel = 5180;
+rateMask0 = 0x8181A100; 
+pwrGainStart2 = 0x4c4c4c4c
+pwrGainStart3 = 0x4c4c4c4c
+pwrGainStart4 = 0x4c4c4c4c
+pwrGainStart5 = 0x4c4c4c4c
+pwrGainStart6 = 0x4c4c4c4c
+pwrGainStart7 = 0x4c4c4c4c
+pwrGainEnd2   = 0x4c4c4c4c
+pwrGainEnd3   = 0x4c4c4c4c
+pwrGainEnd4   = 0x4c4c4c4c
+pwrGainEnd5   = 0x4c4c4c4c
+pwrGainEnd6   = 0x4c4c4c4c
+pwrGainEnd7   = 0x4c4c4c4c
+numPackets = 22; 
+
+op = 0 #_OP_SYNC
+channel = 5240
+
+op = 1 #_OP_TX
+channel = 5240;
+rateMask0 = 0x8181A100; 
+pwrGainStart2 = 0x4c4c4c4c
+pwrGainStart3 = 0x4c4c4c4c
+pwrGainStart4 = 0x4c4c4c4c
+pwrGainStart5 = 0x4c4c4c4c
+pwrGainStart6 = 0x4c4c4c4c
+pwrGainStart7 = 0x4c4c4c4c
+pwrGainEnd2   = 0x4c4c4c4c
+pwrGainEnd3   = 0x4c4c4c4c
+pwrGainEnd4   = 0x4c4c4c4c
+pwrGainEnd5   = 0x4c4c4c4c
+pwrGainEnd6   = 0x4c4c4c4c
+pwrGainEnd7   = 0x4c4c4c4c
+numPackets = 22; 
+
+op = 0 #_OP_SYNC
+channel = 5260
+
+op = 1 #_OP_TX
+channel = 5260;
+rateMask0 = 0x8181A100; 
+pwrGainStart2 = 0x4c4c4c4c
+pwrGainStart3 = 0x4c4c4c4c
+pwrGainStart4 = 0x4c4c4c4c
+pwrGainStart5 = 0x4c4c4c4c
+pwrGainStart6 = 0x4c4c4c4c
+pwrGainStart7 = 0x4c4c4c4c
+pwrGainEnd2   = 0x4c4c4c4c
+pwrGainEnd3   = 0x4c4c4c4c
+pwrGainEnd4   = 0x4c4c4c4c
+pwrGainEnd5   = 0x4c4c4c4c
+pwrGainEnd6   = 0x4c4c4c4c
+pwrGainEnd7   = 0x4c4c4c4c
+numPackets = 22; 
+
+
+op = 0 #_OP_SYNC
+channel = 5320
+
+op = 1 #_OP_TX
+channel = 5320;
+rateMask0 = 0x8181A100; 
+pwrGainStart2 = 0x4c4c4c4c
+pwrGainStart3 = 0x4c4c4c4c
+pwrGainStart4 = 0x4c4c4c4c
+pwrGainStart5 = 0x4c4c4c4c
+pwrGainStart6 = 0x4c4c4c4c
+pwrGainStart7 = 0x4c4c4c4c
+pwrGainEnd2   = 0x4c4c4c4c
+pwrGainEnd3   = 0x4c4c4c4c
+pwrGainEnd4   = 0x4c4c4c4c
+pwrGainEnd5   = 0x4c4c4c4c
+pwrGainEnd6   = 0x4c4c4c4c
+pwrGainEnd7   = 0x4c4c4c4c
+numPackets = 22; 
+
+
+op = 0 #_OP_SYNC
+channel = 5500
+
+op = 1 #_OP_TX
+channel = 5500;
+rateMask0 = 0x8181A100; 
+pwrGainStart2 = 0x4c4c4c4c
+pwrGainStart3 = 0x4c4c4c4c
+pwrGainStart4 = 0x4c4c4c4c
+pwrGainStart5 = 0x4c4c4c4c
+pwrGainStart6 = 0x4c4c4c4c
+pwrGainStart7 = 0x4c4c4c4c
+pwrGainEnd2   = 0x4c4c4c4c
+pwrGainEnd3   = 0x4c4c4c4c
+pwrGainEnd4   = 0x4c4c4c4c
+pwrGainEnd5   = 0x4c4c4c4c
+pwrGainEnd6   = 0x4c4c4c4c
+pwrGainEnd7   = 0x4c4c4c4c
+numPackets = 22; 
+
+
+op = 0 #_OP_SYNC
+channel = 5600
+
+op = 1 #_OP_TX
+channel = 5600;
+rateMask0 = 0x8181A100; 
+pwrGainStart2 = 0x4c4c4c4c
+pwrGainStart3 = 0x4c4c4c4c
+pwrGainStart4 = 0x4c4c4c4c
+pwrGainStart5 = 0x4c4c4c4c
+pwrGainStart6 = 0x4c4c4c4c
+pwrGainStart7 = 0x4c4c4c4c
+pwrGainEnd2   = 0x4c4c4c4c
+pwrGainEnd3   = 0x4c4c4c4c
+pwrGainEnd4   = 0x4c4c4c4c
+pwrGainEnd5   = 0x4c4c4c4c
+pwrGainEnd6   = 0x4c4c4c4c
+pwrGainEnd7   = 0x4c4c4c4c
+numPackets = 22; 
+
+
+op = 0 #_OP_SYNC
+channel = 5700
+
+op = 1 #_OP_TX
+channel = 5700;
+rateMask0 = 0x8181A100; 
+pwrGainStart2 = 0x4c4c4c4c
+pwrGainStart3 = 0x4c4c4c4c
+pwrGainStart4 = 0x4c4c4c4c
+pwrGainStart5 = 0x4c4c4c4c
+pwrGainStart6 = 0x4c4c4c4c
+pwrGainStart7 = 0x4c4c4c4c
+pwrGainEnd2   = 0x4c4c4c4c
+pwrGainEnd3   = 0x4c4c4c4c
+pwrGainEnd4   = 0x4c4c4c4c
+pwrGainEnd5   = 0x4c4c4c4c
+pwrGainEnd6   = 0x4c4c4c4c
+pwrGainEnd7   = 0x4c4c4c4c
+numPackets = 22; 
+
+
+op = 0 #_OP_SYNC
+channel = 5745
+
+op = 1 #_OP_TX
+channel = 5745;
+rateMask0 = 0x8181A100; 
+pwrGainStart2 = 0x4c4c4c4c
+pwrGainStart3 = 0x4c4c4c4c
+pwrGainStart4 = 0x4c4c4c4c
+pwrGainStart5 = 0x4c4c4c4c
+pwrGainStart6 = 0x4c4c4c4c
+pwrGainStart7 = 0x4c4c4c4c
+pwrGainEnd2   = 0x4c4c4c4c
+pwrGainEnd3   = 0x4c4c4c4c
+pwrGainEnd4   = 0x4c4c4c4c
+pwrGainEnd5   = 0x4c4c4c4c
+pwrGainEnd6   = 0x4c4c4c4c
+pwrGainEnd7   = 0x4c4c4c4c
+numPackets = 22; 
+
+
+op = 0 #_OP_SYNC
+channel = 5805
+
+op = 1 #_OP_TX
+channel = 5805;
+rateMask0 = 0x8181A100; 
+pwrGainStart2 = 0x4c4c4c4c
+pwrGainStart3 = 0x4c4c4c4c
+pwrGainStart4 = 0x4c4c4c4c
+pwrGainStart5 = 0x4c4c4c4c
+pwrGainStart6 = 0x4c4c4c4c
+pwrGainStart7 = 0x4c4c4c4c
+pwrGainEnd2   = 0x4c4c4c4c
+pwrGainEnd3   = 0x4c4c4c4c
+pwrGainEnd4   = 0x4c4c4c4c
+pwrGainEnd5   = 0x4c4c4c4c
+pwrGainEnd6   = 0x4c4c4c4c
+pwrGainEnd7   = 0x4c4c4c4c
+numPackets = 22; 
+
+
+op = 0 #_OP_SYNC
+channel = 5825
+
+op = 1 #_OP_TX
+channel = 5825;
+rateMask0 = 0x8181A100; 
+pwrGainStart2 = 0x4c4c4c4c
+pwrGainStart3 = 0x4c4c4c4c
+pwrGainStart4 = 0x4c4c4c4c
+pwrGainStart5 = 0x4c4c4c4c
+pwrGainStart6 = 0x4c4c4c4c
+pwrGainStart7 = 0x4c4c4c4c
+pwrGainEnd2   = 0x4c4c4c4c
+pwrGainEnd3   = 0x4c4c4c4c
+pwrGainEnd4   = 0x4c4c4c4c
+pwrGainEnd5   = 0x4c4c4c4c
+pwrGainEnd6   = 0x4c4c4c4c
+pwrGainEnd7   = 0x4c4c4c4c
+numPackets = 22; 
+
+op = 4 # _OP_CAL_DONE
+
+#end

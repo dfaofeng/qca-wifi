@@ -1,0 +1,57 @@
+CC = gcc
+LD = ld
+MDK_ROOT = $(WORKAREA)/tools/systemtools
+CFLAGS   =  -DLINUX -DLinux -DTEST_STANDALONE -I$(MDK_ROOT)/src2/include -I$(MDK_ROOT)/devlib_ar6003 -I$(MDK_ROOT)/devlib_ar6003/ar6003 -I$(MDK_ROOT)/common_ar6003/include -I$(MDK_ROOT)/mdk_ar6003 -I$(WORKAREA)/../include/systemtools/ar6003
+CFLAGS +=-DAR6002 -DZEROCAL_TOOL -D_USE_AS_API
+#CFLAGS +=-DARCH_BIG_ENDIAN
+
+LDFLAGS	= 
+#VPATH	:= $(MDK_ROOT)/art:$(MDK_ROOT)/devlib/ar6000
+#EXTRA_SRCS := cal_gen6.c mEep6000.c
+
+ifeq ($(OS),)
+OS := Linux_customer
+endif
+
+ifeq ($(DEBUG),1)
+    CFLAGS += -g
+endif
+
+CFLAGS +=-DZERO_CAL_IN_PROGRESS -DENABLE_ALPHATHERMTBL -I$(WORKAREA)/../include/AR6002
+
+# EMULATION=1, OWL fpga
+ifeq ($(EMULATION),1)
+    CFLAGS += -DVENUS_EMULATION
+else
+  ifeq ($(EMULATION),2)
+    CFLAGS += -DVENUS_EMULATION_ARES
+  endif
+endif
+
+READ_FIELD = $(OS)/eepromReadField.out
+SRCS_READ_FIELD := eepromReadField.c eepromUtil.c eepromBin2Txt.c 
+OBJS_READ_FIELD :=  $(patsubst %.c,$(OS)/%.o,$(SRCS_READ_FIELD))
+
+MODIFY_FIELD = $(OS)/eepromModifyField.out
+SRCS_MODIFY_FIELD := eepromModifyField.c eepromUtil.c eepromBin2Txt.c eepromTxt2Bin.c 
+OBJS_MODIFY_FIELD :=  $(patsubst %.c,$(OS)/%.o,$(SRCS_MODIFY_FIELD))
+
+all: dirs $(READ_FIELD) $(MODIFY_FIELD)
+
+dirs:
+	mkdir -p $(OS)
+
+$(READ_FIELD): $(OBJS_READ_FIELD) 
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS_READ_FIELD)
+
+$(MODIFY_FIELD): $(OBJS_MODIFY_FIELD) 
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS_MODIFY_FIELD)
+
+$(OS)/%.o : %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
+clean:
+	rm -rf $(OS) 
+
+.PHONY:
+	clean all

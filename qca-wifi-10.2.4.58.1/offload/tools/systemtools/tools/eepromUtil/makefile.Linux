@@ -1,0 +1,116 @@
+CC = gcc
+LD = ld
+MDK_ROOT = $(WORKAREA)/tools/systemtools
+CFLAGS   =  -DLINUX -DLinux -DTEST_STANDALONE -I$(WORKAREA)/include -I$(WORKAREA)/../include -I$(WORKAREA)/os/linux/include -I$(WORKAREA)/../include/systemtools -I$(WORKAREA)/../include/systemtools/ar6003 -I$(MDK_ROOT)/src2/include -I$(MDK_ROOT)/devlib_ar6003 -I$(MDK_ROOT)/devlib_ar6003/ar6003 -I$(MDK_ROOT)/common_ar6003/include -I$(MDK_ROOT)/mdk_ar6003 -I$(MDK_ROOT)/art_ar6003l -I$(WORKAREA)/target/src/whal/AR6003/eeprom -I$(WORKAREA)/tools/systemtools/tools/utf_utilities/include -I$(WORKAREA)/../include/AR6002 -I$(WORKAREA)/target/src/wlan/wal/whal/eeprom
+
+CFLAGS +=-DUSED_BY_HOST -D_HOST_SIM_TESTING
+
+LDFLAGS	= 
+VPATH	:= $(MDK_ROOT)/tools/utf_utilities/common:$(MDK_ROOT)/common_ar6003 
+EXTRA_SRCS  := testUtil.c otp_routines.c 
+
+ifeq ($(OS),)
+OS := Linux
+endif
+
+OUTPUT_DIR := .output
+
+ifeq ($(DEBUG),1)
+    CFLAGS += -g -DFCC_INCLUDED 
+endif
+
+BIN_CONV   = $(OS)/eepromBin2Txt.out
+SRCS_CONV := eepromBin2Txt.c eepromUtil.c 
+OBJS_CONV :=  $(patsubst %.c,$(OS)/%.o,$(SRCS_CONV))
+
+BIN_AR6004_CONV   = $(OS)/eepromBin2Txt_ar6004.out
+SRCS_AR6004_CONV := eepromBin2Txt_ar6004.c eepromUtil_ar6004.c testUtil.c 
+OBJS_AR6004_CONV :=  $(patsubst %.c,$(OS)/%.o,$(SRCS_AR6004_CONV))
+
+BIN_GEN    = $(OS)/eepromTxt2Bin.out
+SRCS_GEN  := eepromTxt2Bin.c eepromUtil.c
+OBJS_GEN  :=  $(patsubst %.c,$(OS)/%.o,$(SRCS_GEN))
+
+BIN_AR6004_GEN    = $(OS)/eepromTxt2Bin_ar6004.out
+SRCS_AR6004_GEN  := eepromTxt2Bin_ar6004.c eepromUtil_ar6004.c testUtil.c
+OBJS_AR6004_GEN  :=  $(patsubst %.c,$(OS)/%.o,$(SRCS_AR6004_GEN))
+
+CAL_PROC   = $(OS)/calProc.out
+SRCS_CAL  := calProc.c
+OBJS_CAL  :=  $(patsubst %.c,$(OS)/%.o,$(SRCS_CAL))
+
+BIN_PCCAL   = $(OS)/pcCALPush.out
+SRCS_PCCAL := pcCALPush.c eepromUtil.c cal_gen6.c wmiUtil.c 
+OBJS_PCCAL :=  $(patsubst %.c,$(OS)/%.o,$(SRCS_PCCAL))
+
+BIN_EEPTMP  = $(OS)/genEepromBrdData.out
+SRCS_EEPTMP:= genEepromTmpBrdData.c
+OBJS_EEPTMP:=  $(patsubst %.c,$(OS)/%.o,$(SRCS_EEPTMP))
+
+#
+# QC9K 
+#
+BIN_QC9K_EEPTMP  = $(OS)/genEepromTmpBrdData_qc9k.out
+SRCS_QC9K_EEPTMP:= genEepromTmpBrdData_qc9k.c
+OBJS_QC9K_EEPTMP:=  $(patsubst %.c,$(OS)/%.o,$(SRCS_QC9K_EEPTMP))
+
+BIN_QC9K_CONV   = $(OS)/eepromBin2Txt_qc9k.out
+SRCS_QC9K_CONV := eepromBin2Txt_qc9k.c eepromBin2Txt_gen.c eepromUtil_1.c
+OBJS_QC9K_CONV :=  $(patsubst %.c,$(OS)/%.o,$(SRCS_QC9K_CONV))
+
+BIN_QC9K_GEN    = $(OS)/eepromTxt2Bin_qc9k.out
+SRCS_QC9K_GEN  := eepromTxt2Bin_qc9k.c eepromTxt2Bin_gen.c eepromUtil_1.c
+OBJS_QC9K_GEN  :=  $(patsubst %.c,$(OS)/%.o,$(SRCS_QC9K_GEN))
+
+
+all: dirs $(BIN_CONV) $(BIN_GEN) $(CAL_PROC) $(BIN_EEPTMP) $(BIN_AR6004_GEN) $(BIN_AR6004_CONV) $(BIN_QC9K_EEPTMP) $(BIN_QC9K_CONV) $(BIN_QC9K_GEN) copy
+#all: dirs $(BIN_PCCAL)
+
+qc9k: dirs $(BIN_QC9K_EEPTMP) $(BIN_QC9K_CONV) $(BIN_QC9K_GEN) copy
+
+dirs:
+	mkdir -p $(OS)
+	mkdir -p $(OUTPUT_DIR)
+
+$(BIN_CONV): $(OBJS_CONV) 
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS_CONV)
+
+$(BIN_AR6004_CONV): $(OBJS_AR6004_CONV) 
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS_AR6004_CONV)
+
+$(BIN_GEN): $(OBJS_GEN) 
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS_GEN)
+
+$(BIN_AR6004_GEN): $(OBJS_AR6004_GEN) 
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS_AR6004_GEN)
+
+$(CAL_PROC): $(OBJS_CAL) 
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS_CAL)
+
+$(BIN_PCCAL): $(OBJS_PCCAL) 
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS_PCCAL)
+
+$(BIN_EEPTMP): $(OBJS_EEPTMP) 
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS_EEPTMP)
+
+$(BIN_QC9K_EEPTMP): $(OBJS_QC9K_EEPTMP)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS_QC9K_EEPTMP)
+
+$(BIN_QC9K_CONV): $(OBJS_QC9K_CONV)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS_QC9K_CONV)
+
+$(BIN_QC9K_GEN): $(OBJS_QC9K_GEN)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS_QC9K_GEN)
+
+
+$(OS)/%.o : %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
+copy:
+	cp -fp $(OS)/*.out $(OUTPUT_DIR)
+
+clean:
+	rm -rf $(OS) 
+
+.PHONY:
+	clean all

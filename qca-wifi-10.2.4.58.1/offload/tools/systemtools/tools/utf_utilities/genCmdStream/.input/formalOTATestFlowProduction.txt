@@ -1,0 +1,123 @@
+# Sample test flow for LP integration
+# This is the input to the binary test flow generation utility
+#
+
+# Begin
+# _OP_TEST_CONFIG is a special opCode, only affecting the header in the cmdStream
+op = 255 #_OP_TEST_CONFIG
+#header= CMD_STREAM_HEADER_REPEAT_TEST | CMD_STREAM_HEADER_FAIL_RETRY;
+#headerDepValue = ((2 << FAIL_RETRY_SHIFT) & FAIL_RETRY_MASK) | (5 & REPEAT_TEST_MASK);
+header = 0;
+headerDepValue = 0;
+headerExtended  = 0;
+ 
+op = 0 #_OP_SYNC
+channel = 2412
+#addr = 0x01, 0x00, 0x00, 0xCA, 0xFF, 0xEE
+
+op = 1 #_OP_TX
+channel = 2412;
+rateMask0 = 0x00818141; 
+numPackets = 22; 
+
+op = 2 #_OP_RX
+channel = 2412;
+expectedPkts = 100;
+#addr = 0x01, 0x00, 0x00, 0xC0, 0xFF, 0xEE
+#rxMode = 1 #TCMD_CONT_RX_FILTER;
+
+op = 0 #_OP_SYNC
+channel = 2437
+#addr = 0x01, 0x00, 0x00, 0xCA, 0xFF, 0xEE
+
+op = 1 #_OP_TX
+channel = 2437;
+rateMask0 = 0x00818141; 
+numPackets = 22; 
+
+op = 2 #_OP_RX
+channel = 2437;
+expectedPkts = 100;
+#addr = 0x01, 0x00, 0x00, 0xC0, 0xFF, 0xEE
+#rxMode = 1 #TCMD_CONT_RX_FILTER;
+
+op = 0 #_OP_SYNC
+channel = 2472
+#addr = 0x01, 0x00, 0x00, 0xCA, 0xFF, 0xEE
+
+op = 1 #_OP_TX
+channel = 2472;
+rateMask0 = 0x00818141; 
+numPackets = 22; 
+
+op = 2 #_OP_RX
+channel = 2472;
+expectedPkts = 100;
+#addr = 0x01, 0x00, 0x00, 0xC0, 0xFF, 0xEE
+#rxMode = 1 #TCMD_CONT_RX_FILTER;
+
+
+op = 0 #_OP_SYNC
+channel = 5180
+#addr = 0x01, 0x00, 0x00, 0xCA, 0xFF, 0xEE
+
+op = 1 #_OP_TX
+channel = 5180;
+rateMask0 = 0x81818100; 
+numPackets = 22; 
+
+op = 2 #_OP_RX
+channel = 5180;
+expectedPkts = 100;
+#addr = 0x01, 0x00, 0x00, 0xC0, 0xFF, 0xEE
+#rxMode = 1 #TCMD_CONT_RX_FILTER;
+
+
+op = 0 #_OP_SYNC
+channel = 5320
+#addr = 0x01, 0x00, 0x00, 0xCA, 0xFF, 0xEE
+
+op = 1 #_OP_TX
+channel = 5320;
+rateMask0 = 0x81818100; 
+numPackets = 22; 
+
+op = 2 #_OP_RX
+channel = 5320;
+expectedPkts = 100;
+#addr = 0x01, 0x00, 0x00, 0xC0, 0xFF, 0xEE
+#rxMode = 1 #TCMD_CONT_RX_FILTER;
+
+
+op = 0 #_OP_SYNC
+channel = 5600
+#addr = 0x01, 0x00, 0x00, 0xCA, 0xFF, 0xEE
+
+op = 1 #_OP_TX
+channel = 5600;
+rateMask0 = 0x81818100; 
+numPackets = 22; 
+
+op = 2 #_OP_RX
+channel = 5600;
+expectedPkts = 100;
+#addr = 0x01, 0x00, 0x00, 0xC0, 0xFF, 0xEE
+#rxMode = 1 #TCMD_CONT_RX_FILTER;
+
+
+op = 0 #_OP_SYNC
+channel = 5745
+#addr = 0x01, 0x00, 0x00, 0xCA, 0xFF, 0xEE
+
+op = 1 #_OP_TX
+channel = 5745;
+rateMask0 = 0x81818100; 
+numPackets = 22; 
+
+op = 2 #_OP_RX
+channel = 5745;
+expectedPkts = 100;
+#addr = 0x01, 0x00, 0x00, 0xC0, 0xFF, 0xEE
+#rxMode = 1 #TCMD_CONT_RX_FILTER;
+
+#end

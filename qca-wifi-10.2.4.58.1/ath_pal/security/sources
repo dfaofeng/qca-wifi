@@ -1,0 +1,54 @@
+#
+#  SOURCES file for POSH layer
+#
+
+TOP=..\..
+LMAC=$(TOP)\lmac
+ATH=$(LMAC)\ath_dev
+HAL=$(LMAC)\hal
+MP=$(TOP)\os\win_nwf
+INC=$(TOP)\include
+ASF=$(TOP)\asf
+ADF=$(TOP)\adf
+
+!include $(MP)\include\sources.inc
+
+TARGETNAME=ath_pal_security
+TARGETPATH=$(TOP)\lib
+TARGETTYPE=LIBRARY
+
+INCLUDES= $(INCLUDES)            \
+    $(ATH);                      \
+    $(HAL);                      \
+    $(HAL)\winvista;             \
+    $(INC);                      \
+    $(INC)\winvista;             \
+    $(INC)\pal;                  \
+    $(MP)\include;               \
+    $(ASF)\include;              \
+    $(ADF)\include\os;           \
+    $(ADF)\include\net;          \
+    $(ADF)\include\nbuf;         \
+    $(ADF)\os\win_nwf;           \
+    $(ADF)\net\win_nwf;          \
+    $(ADF)\nbuf\win_nwf;         \
+    $(SDXROOT)\net\inc;          \
+    $(DDK_INC_PATH)
+
+SOURCES=      aes_core.c\
+              aes_wrap.c\
+              crypto.c\
+              des_enc.c\
+              ecb_enc.c\
+              md4c.c\
+              md5.c\
+              ncbc_enc.c\
+              set_key.c\
+              sha_dgst.c\
+              sha1.c\
+              wpa.c\
+ 
+
+ 
+
+

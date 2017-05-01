@@ -1,0 +1,43 @@
+CC = gcc
+LD = ld
+MDK_ROOT = $(WORKAREA)/tools/systemtools
+CFLAGS   =  -Wall -DLINUX -DLinux -I$(WORKAREA)/include -I$(WORKAREA)/include -I$(WORKAREA)/os/linux/include -I$(WORKAREA)/../include/systemtools -I$(WORKAREA)/../include/systemtools/common -I$(WORKAREA)/../include/systemtools/ar6003 -I$(WORKAREA)/tools/systemtools/devlib_ar6003/ar6003 -I$(WORKAREA)/tools/systemtools/src2/include -I$(WORKAREA)/tools/systemtools/tools/eepromUtil -I$(WORKAREA)/tools/systemtools/common_ar6003/include -I$(MDK_ROOT)/tools/utf_utilities -I$(MDK_ROOT)/tools/utf_utilities/include -I$(WORKAREA)/target/src/whal/AR6003/eeprom
+CFLAGS   +=  -I. -I../include -D_DEBUG -DLINUX -DLinux -DTEST_STANDALONE -I$(MDK_ROOT)/src2/include -I$(MDK_ROOT)/include -D_HOST_SIM_TESTING -D_FOR_HOST_TESTING -D_PARSER_BIN_CMD_STREAM_API_ONLY
+CFLAGS +=-DUSED_BY_HOST -I$(WORKAREA)/tools/systemtools/common_ar6004/
+
+LDFLAGS	:= -L./addnl_inst/ -lrsnrpz -lnrp
+
+COMMON_DIR	= $(MDK_ROOT)/tools/utf_utilities/common
+VPATH	:= $(MDK_ROOT)/tools/eepromUtil:$(MDK_ROOT)/tools/utf_utilities/genParmTemplate/.output:$(COMMON_DIR):$(MDK_ROOT)/tools/utf_utilities/verifyCmdStream 
+EXTRA_SRCS := testUtil.c eepromUtil_ar6004.c addnl_inst/rsnrpzBurstAv.c _cmd_rxParmBinTemplate.c _cmd_txParmBinTemplate.c _cmd_calParmBinTemplate.c parseBinCmdStream.c cmdStreamParmsParsing.c
+
+ifeq ($(OS),)
+OS := Linux
+endif
+
+ifeq ($(DEBUG),1)
+    CFLAGS += -g 
+endif
+CFLAGS += -DFCC_INCLUDED -D_OTA_TOOL 
+
+BIN_PWR   = $(OS)/calTxPwr.out
+SRCS_PWR := calTxPwr.c mInst.c $(EXTRA_SRCS)
+OBJS_PWR :=  $(patsubst %.c,$(OS)/%.o,$(SRCS_PWR))
+
+all: dirs $(BIN_PWR)
+
+dirs:
+	mkdir -p $(OS)
+	mkdir -p $(OS)/addnl_inst
+
+$(BIN_PWR): $(OBJS_PWR) 
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS_PWR)
+
+$(OS)/%.o : %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
+clean:
+	rm -rf $(OS) 
+
+.PHONY:
+	clean all

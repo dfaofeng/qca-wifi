@@ -1,0 +1,408 @@
+# calsetup file extended for OWL 11n testing
+CALSETUP_VERSION              = 1;      # 0/undef => legacy prior to, and excluding, 11n
+                                        # 1       => 11n starting with AR5416 
+#TESTFLOW_BIN_FILENAME           = ./CALFlow_ar6004_DB132_oneChan.bin
+#TESTFLOW_BIN_FILENAME           = ./CALFlow_ar6004_DB132_2G.bin
+####TESTFLOW_BIN_FILENAME           = ./CALFlow_ar6004_wbgf10.bin
+########TESTFLOW_BIN_FILENAME           = ./CALFlow_ar6004_wbgf10_5dBm.bin
+#TESTFLOW_BIN_FILENAME           = ./Sweep_2G_ar6004_DB132.bin
+#TESTFLOW_BIN_FILENAME           = ./Sweep_2G_ar6004_wbgf10.bin
+#TESTFLOW_BIN_FILENAME           = ./CALFlow_ar6004_wbgf10_2G.bin
+#TESTFLOW_BIN_FILENAME           = ./CALFlow_ar6004_wbgf10_2G_3chan.bin
+#TESTFLOW_BIN_FILENAME           = ./CALFlow_ar6004_wbgf10_5G.bin
+#TESTFLOW_BIN_FILENAME           = ./Sweep_2G_ar6004_DB132_short.bin
+#########TESTFLOW_BIN_FILENAME           = ./Sweep_2G_ar6004_wbgf10_short.bin
+######TESTFLOW_BIN_FILENAME           = ./Sweep_wbgf10.bin
+###TESTFLOW_BIN_FILENAME           = ./Sweep_DB132.bin
+TESTFLOW_BIN_FILENAME           = ./Sweep_DB132_orig.bin
+###TESTFLOW_BIN_FILENAME           = ./Sweep_DB132_peakPwr.bin
+######TESTFLOW_BIN_FILENAME           = ./Sweep_DB132_hiGain.bin
+#TESTFLOW_BIN_FILENAME           = ./CALFlow_ar6004_DB132_5G.bin
+######TESTFLOW_BIN_FILENAME           = ./CALFlow_ar6004_DB132.bin
+#TESTFLOW_BIN_FILENAME           = ./CALFlow_ar6004_DB132_oneEach.bin
+#GOLDEN_BIN_FILENAME              = ./new_boardData_1_0_DB132.bin
+#OUTPUT_BIN_FILENAME              = ./sweep_boardData_1_0_DB132.bin
+#GOLDEN_BIN_FILENAME              = ./boardData_wbgf10_2G_CAL_allChan.bin
+##############GOLDEN_BIN_FILENAME              = ./boardData_1_0_dflt_wbgf10.bin
+GOLDEN_BIN_FILENAME              = ./boardData_1_0_DB132.bin
+##########GOLDEN_BIN_FILENAME              = ./boardData_1_0_wbgf10_5dBm.bin
+OUTPUT_BIN_FILENAME              = ./tmp_boardData_1_0_DB132.bin
+####OUTPUT_BIN_FILENAME              = ./tmp_boardData_wbgf10_CAL_5dBm.bin
+LABEL                            = db132_d0014
+
+# General Info
+COUNTRY_OR_DOMAIN_FLAG	      = 0;	# 1 indicates the code is a country code. 0=>regulatory domain code
+WORLD_WIDE_ROAMING_FLAG	      = 0;	# 1 indicates a single SKU covering worldwide roaming
+COUNTRY_OR_DOMAIN_CODE        = 0x000;	# 12-bit country or domain code for intended region-of-use (hex)    
+SUB_VENDOR_ID		      = 0x168c; # SubVendor ID in hex
+MACID_FILENAME		      = ./macid.txt;  # central macID file
+BTID_FILENAME                 = ./btid.txt;   # central btID file
+CUSTOMER_DEBUG                = 0;	# not to be turned on in normal operation.
+SHOW_TIMING_REPORT	      = 1;      # show time taken by various tests
+ATHEROS_LOGGING_SCHEME        = 0;	# Enable the Atheros specific label scheme
+NO_WRITE_MAC_ADDRESS          = 0;      # 0: load MACID from MACID.txt, 1: load from label
+NO_WRITE_BT_ADDRESS           = 1;      # 0: load BTID from BTID.txt, 1: load from label
+
+			        
+# Instrumentation Info	        
+USE_INSTRUMENTS	              = 1;	# Select whether Instruments are Connected	              
+PM_MODEL	              = 4;	# 1 => HP 436A, 2 => Agilent E4416A, 3 => 4531, 4 => USB
+PM_GPIB_ADDR	              = 13;	# Power meter GPIB Address	 
+SA_GPIB_ADDR	              = 19;	# Spectrum analyzer GPIB Address  
+SA_MODEL                      = 1;      # 1 for E4404B, 2 for 8595E, 3 for R3162, 4 for FSL   
+ATTEN_MODEL                   = 1;      # 0 => HP 11713A with 70 dB range, 1 =>  HP11713A with 110 dB range
+ATT_GPIB_ADDR	              = 1;	# Attenuator GPIB Address	 		              
+GOLDEN_IP_ADDR	              = 10.10.39.26;    # IP addr of the golden machine
+#GOLDEN_IP_ADDR	              = .;    # Use . if both DUT and GU are control by same machine
+DMM_MODEL		      = 1;	# 1 => Fluke 45
+DMM_GPIB_ADDR		      = 10;	# DMM (current-meter) GPIB Address	 		              
+			        
+# Calibration Setup Info        
+
+
+CASE_TEMPERATURE              = 45;	# Case temperature of the AR5111 on the DUT during calibration (int)
+GOLDEN_PPM	              = -15;	# Measured PPM of golden device (int)
+TEST_PPM_IN_PER		      = 0;
+
+#ATTEN_DUT_SA                  = 12.3;	# measured w NA, james_02082010, Attenuation at 5.5GHz between DUT and spectrum analyzer (double)
+#ATTEN_FIXED_DUT_GOLDEN        = 12.6;   # measured w NA, james_02082010, Fixed attenuation at 5.5GHz between DUT and GOLDEN (double)
+ATTEN_DUT_SA                  = 22.3;	# measured w NA, jhou_04202010, Attenuation at 5.5GHz between DUT and spectrum analyzer (double)
+ATTEN_FIXED_DUT_GOLDEN        = 22.6;   # measured w NA, jhou_04202010, Fixed attenuation at 5.5GHz between DUT and GOLDEN (double)
+ATTEN_DUT_PM                  = 6.8;  	# measured w NA, james_02082010, Attenuation at 5.5GHz between DUT and power meter (double)
+
+#11b_ATTEN_DUT_SA              = 9.9;   #measured w NA, james_02082010, Attenuation at 2.5GHz between DUT and spectrum analyzer (double)
+#11b_ATTEN_FIXED_DUT_GOLDEN    = 9.4;  	#measured w NA, james_02082010, Fixed attenuation at 2.5GHz between DUT and GOLDEN (double)
+11b_ATTEN_DUT_SA              = 19.7;   #measured w NA, jhou_04202010, Attenuation at 2.5GHz between DUT and spectrum analyzer (double)
+11b_ATTEN_FIXED_DUT_GOLDEN    = 19.2;  	#measured w NA, jhou_04202010, Fixed attenuation at 2.5GHz between DUT and GOLDEN (double)
+11b_ATTEN_DUT_PM              = 5.2; 	#measured w NA, james_02082010, Attenuation at 2.5GHz between DUT and power meter (double)
+
+# Chain 1 calibration setup info
+CHAIN1_ATTEN_MODEL                   = 1;      # 0 => HP 11713A with 70 dB range, 1 =>  HP11713A with 110 dB range
+CHAIN1_ATT_GPIB_ADDR	             = 2;	# Chain1 Attenuator GPIB Address	 		              
+CHAIN1_ATTEN_DUT_SA                  = 35.1;	# Chain1 Attenuation at 5.5GHz between DUT and spectrum analyzer (double)
+CHAIN1_ATTEN_FIXED_DUT_GOLDEN        = 20.2;    # Chain1 Fixed attenuation at 5.5GHz between DUT and GOLDEN (double)
+CHAIN1_ATTEN_DUT_PM                  = 34.2;  	# Chain1 Attenuation at 5.5GHz between DUT and power meter (double)
+CHAIN1_11b_ATTEN_DUT_SA              = 32.3;	# Chain1 Attenuation at 2.5GHz between DUT and spectrum analyzer (double)
+CHAIN1_11b_ATTEN_FIXED_DUT_GOLDEN    = 14;  	# Chain1 Fixed attenuation at 2.5GHz between DUT and GOLDEN (double)
+CHAIN1_11b_ATTEN_DUT_PM              = 31.8;  	# Chain1 Attenuation at 2.5GHz between DUT and power meter (double)
+
+# Chain 2 calibration setup info
+CHAIN2_ATTEN_MODEL                   = 1;      # 0 => HP 11713A with 70 dB range, 1 =>  HP11713A with 110 dB range
+CHAIN2_ATT_GPIB_ADDR	             = 3;	# Chain2 Attenuator GPIB Address	 		              
+CHAIN2_ATTEN_DUT_SA                  = 35.1;	# Chain2 Attenuation at 5.5GHz between DUT and spectrum analyzer (double)
+CHAIN2_ATTEN_FIXED_DUT_GOLDEN        = 20.3;    # Chain2 Fixed attenuation at 5.5GHz between DUT and GOLDEN (double)
+CHAIN2_ATTEN_DUT_PM                  = 34.3;  	# Chain2 Attenuation at 5.5GHz between DUT and power meter (double)
+CHAIN2_11b_ATTEN_DUT_SA              = 31.8;	# Chain2 Attenuation at 2.5GHz between DUT and spectrum analyzer (double)
+CHAIN2_11b_ATTEN_FIXED_DUT_GOLDEN    = 17.2;  	# Chain2 Fixed attenuation at 2.5GHz between DUT and GOLDEN (double)
+CHAIN2_11b_ATTEN_DUT_PM              = 31.3;  	# Chain2 Attenuation at 2.5GHz between DUT and power meter (double)
+
+
+# Test Margins
+NUM_MASK_FAIL_POINTS	      = 20;     # Manufacturing margin for spectral mask test
+PER_PASS_LIMIT		      = 90;     # Minimum number of good packets in TX_PER tests to pass 
+SEN_PASS_LIMIT		      = 90;     # Minimum number of good packets in RX_SEN tests to pass 
+PPM_MAX_LIMIT		      = 15;	# Maximum permitted PPM, after correcting for GOLDEN_PPM
+PPM_MIN_LIMIT		      =-15;	# Minimum permitted PPM, after correcting for GOLDEN_PPM
+TARGET_POWER_TOLERANCE_UPPER  = 1.5;	# Tolerance in dB to allow for target power control   (double)
+TARGET_POWER_TOLERANCE_LOWER  = 1.5;	# Tolerance in dB to allow for target power control   (double)
+
+11a_CURR_TX_HI		      = 500;    # Maximum power consumption (mA) for 11a tx
+11a_CURR_TX_LO		      = 400;	# Minimum power consumption (mA) for 11a tx
+11a_CURR_RX_HI		      = 350;	# Maximum power consumption (mA) for 11a rx
+11a_CURR_RX_LO		      = 250;	# Minimum power consumption (mA) for 11a rx
+
+11b_CURR_TX_HI		      = 500;    # Maximum power consumption (mA) for 11b tx
+11b_CURR_TX_LO		      = 400;	# Minimum power consumption (mA) for 11b tx
+11b_CURR_RX_HI		      = 350;	# Maximum power consumption (mA) for 11b rx
+11b_CURR_RX_LO		      = 250;	# Minimum power consumption (mA) for 11b rx
+
+11g_CURR_TX_HI		      = 500;    # Maximum power consumption (mA) for 11g tx
+11g_CURR_TX_LO		      = 400;	# Minimum power consumption (mA) for 11g tx
+11g_CURR_RX_HI		      = 350;	# Maximum power consumption (mA) for 11b rx
+11g_CURR_RX_LO		      = 250;	# Minimum power consumption (mA) for 11b rx
+
+
+
+MAX_RETEST_NUM		      = 3;      # Maximum number of times a test is run. Set value >= 1
+
+# Calibration flags	        
+CAL_POWER                     = 1;	# Calibrate power levels for 11a/b/g for modes supported
+CAL_PHASE                     = 0;	# Calibrate phase delta for falcon dual chains 11a/b/g for modes supported
+USE_11g_CAL_FOR_11b	      = 0;      # Use 11g calibration data for 11b cal.
+REPROGRAM_TARGET_POWER        = 0;	# Re-program target power. No power measurements done
+DO_IQ_CAL		      = 0;	# Perform iq_cal mismatch calibration
+
+TEST_IDLE_CURR_CNSMPN         = 0;	# Test power consumption in idle state
+IDLE_CURR_HI		      = 200;	# High limit on idle power consumption (mA) 
+IDLE_CURR_LO		      = 130;	# Low limit on idle power consumption (mA)    
+
+# For testing CAL only, sweep tx power
+SWEEP_TX_POWER                = 0
+CAL_WITH_TGT_PWR              = 0
+WRITE_TO_EEPROM_FILE          = 1
+WRITE_TO_OTP                  = 0
+
+# Use the following FIXED_GAIN setting to disable auto FIXED_GAIN algorithm for 11a and 11g mode
+# You can force FIXED_GAIN to the value between 0 (lowest) and 8 (highest)
+# If you comment out the following two lines, ART program will find the best FG setting automatically
+# FIXED_GAIN setting for 11b is fixed at 4 (auto or manual)
+CAL_FIXED_GAIN	     	      = 6;      # fixed gain to use for 11a calibration measurements
+11g_CAL_FIXED_GAIN	      = 6;      # fixed gain to use for 11g calibration measurements
+11b_CAL_FIXED_GAIN	      = 6;      # fixed gain to use for 11b calibration measurements
+
+# Use the following default iq_cal coeffs if can't run the iq_cal for any reason. it is recommended to run the
+# iq_cal on each board for optimum results.
+I_COEFF_5G                    =  8;      # typical i_coeff in 11a mode
+Q_COEFF_5G                    = -1;      # typical q_coeff in 11a mode
+I_COEFF_2G                    =  4;      # typical i_coeff in 11g mode
+Q_COEFF_2G                    =  0;      # typical q_coeff in 11g mode
+
+#FTP Download specification
+DO_FTP_DOWNLOAD = 0;			# Set to download AP image at end of calibration
+FTP_HOSTNAME    = 10.10.12.206;		# server to FTP from
+FTP_USERNAME    = mdk;			# User name for FTP login
+FTP_PASSWORD    = atheros;		# password for FTP login
+FTP_REMOTE_FILE = test\freedomart.sys;  # file that will be copied onto the AP
+FTP_LOCAL_FILE  = APIMG1		# Name of the file on the AP.
+
+#######################################
+###  calsetup specific to 11a mode  ###
+#######################################
+GOLDEN_TX_POWER               = 6;  	# Desired output power from the GU for 11a RXSEN test (double)
+MAX_POWER_CAP                 = 20;     # Cap power measurements during calibration
+FORCE_PIERS	              = 1;	# calibrate power only at channels in the FORCE_PIERS_LIST
+FORCE_PIERS_LIST              = 5180, 5240, 5260, 5320, 5500, 5600, 5700, 5745, 5805, 5825; # a maximum of up to 8 piers.
+#FORCE_PIERS_LIST              = 5180, 5200, 5220, 5240, 5260, 5280, 5300, 5320, 5500, 5520, 5540, 5560, 5580, 5600, 5620, 5640, 5660, 5680, 5700, 5745, 5765, 5785, 5805, 5825; # overkill
+READ_FROM_FILE	              = 0;	# skip 11a cal. read data from a file instead.
+RAW_DATA_FILENAME             = cal_AR5211_power.log;	     # read 11a data from this file
+
+# AUTO_PIERS :     When FORCE_PIERS is off, set the following three parameters 
+#                  to allow ART to automatically find the turning points over the
+#                  desired range.
+
+#AUTO_PIER_START             = 5150;   # (default 4900 if not specified)
+#AUTO_PIER_STOP              = 5500;   # (default 5850 if not specified)
+#AUTO_PIER_STEP              = 30;     # (default 70 if not specified) keep between 10-100MHz
+			        			        
+# General test flags
+TEST_32KHZ_SLEEP_CRYSTAL      = 0;      # Test for proper functioning of the 32KHz sleep crystal
+TEST_HT20                     = 1;      # whether to test HT20 rates
+TEST_HT40                     = 1;      # whether to test HT40 rates
+THROUGHPUT_WITH_AGGREGATION   = 1;
+AGGREGATION_SIZE              = 10;
+DO_CCK_IN_11G                 = 1;
+THROUGHPUT_HT_PACKET_SIZE     = 3900;
+MAX_POWER_THRESHOLD           = 28;
+MIN_POWER_THRESHOLD           = 15;
+11g_NUM_SENS_PACKETS          = 50;
+
+# 11a mode test flags	        
+TEST_OBW_MASK                 = 0;	# Test occupied bandwidth mask at 11a test frequencies
+TEST_SPEC_MASK                = 1;      # Test spectral mask at 11a test frequencies 
+TEST_CHANNEL_ACCURACY         = 1;      # Test using spectrum analyzer the 11a channel accuracy in PPM
+TEST_TXPER                    = 1;      # Test Transmit Packet Error Rate at 11a test frequencies 
+TEST_RXSEN                    = 1;	# Test Receive Sensitivity at 11a test frequencies 
+TEST_HALF_RATE_MODE	      = 0;	# Test PER and RXSEN in the half rate mode at 11a test frequencies 
+TEST_TARGET_POWER             = 1;	# Test Target Power at 11a test frequencies 
+TEST_THROUGHPUT               = 0;
+TEST_RX_THROUGHPUT            = 0;      # Test 11a hardware receive throughput
+11a_TEST_CURR_CNSMPN_TX	      = 0;	# Test power consumption for 11a tx
+11a_TEST_CURR_CNSMPN_RX	      = 0;	# Test power consumption for 11a rx
+
+11a_SEN_BACKOFF_HT40          = 3;
+
+# 11a, 11b and 11g Test Channel Matrices : 
+#	 Rules:
+#		1. upto 32 test frequencies for each mode.
+#		2. if flags are turned on above to perform the TEMP_MARGIN_TEST, spectral mask, TXPER,
+#		   RXSEN and target power tests for 11a/b/g modes, they 
+#		   will be performed at the following test frequencies based upon the
+#		   values in the PER_TEST, MASK_TEST, TGT_PWR_TEST and TEMP_MARGIN_TEST columns.
+#		3. OBW_TEST can be specified ONLY for 11a mode.
+#
+# Note: Throughput test limits are set based on 2 stream tx and rx
+#BEGIN_11a_TEST_CHANNEL_MATRIX  
+#     Ch       PER   SEN  LO_RT	LO_RT  HF_RT  MASK  OBW  TGT_PWR  TPUT TPUT   HT20   HT40   MULTI  TGT_PWR     TPUT  TP RX  CHAN   CURR    HT20   HT40
+#              SEN   TGT   SEN   SEN   TEST   TEST  TEST  TEST    TEST PASS   TPUT   TPUT   CHAIN  MASK         RX   PASS   ACCUR  CONSUM  TP RX  TP RX 
+#              TEST  dBm  TEST   TGT	                  MASK         THRSH  THRSH  THRSH  TESTS  HT20/40     TEST  THRSH         rx tx   THRESH THRESH
+											             		
+# UNII-1&2 (5.15-5.35GHz) test channels							         
+    5180        1    -65    0    -88    0      0     0    1111     110  28.0  100.0   180.0   3   11111/11111   110    28.0    1     11    99.0   179.0
+#   5200        1    -65    0    -88    0      0     0    1111     100  28.0  100.0   180.0   3   11111/11111   100    28.0    1     11    99.0   179.0
+#   5220        1    -65    0    -88    0      0     0    1111     100  28.0  100.0   180.0   3   11111/11111   100    28.0    1     11    99.0   179.0
+#   5240        1    -65    0    -88    0      0     0    1111     100  28.0  100.0   180.0   3   11111/11111   100    28.0    1     11    99.0   179.0
+   5260        1    -65    0    -88    0  10100001  0    1111     110  28.0  100.0   180.0   3   11111/11111   110    28.0    1     11    99.0   179.0
+#   5280        1    -65    0    -88    0      0     0    1111     100  28.0  100.0   180.0   3   11111/11111   100    28.0    1     11    99.0   179.0
+#   5300        1    -65    0    -88    0      0     0    1111     100  28.0  100.0   180.0   3   11111/11111   100    28.0    1     11    99.0   179.0
+    5320        1    -65    0    -88    0      0     0    1111     110  28.0  100.0   180.0   3   11111/11111   110    28.0    1     11   99.0   179.0 
+
+# UNII-3 & ISM band test channels									  
+#   5745        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11   99.0   179.0
+#   5765        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   5785        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11   99.0   179.0
+#   5805        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   5825        1    -68    0    -88    0      0     0    1111     110  28.0  100.0   180.0    3   11111/11111   110    28.0   1     11   99.0   179.0
+													  
+# ETSI (5.47-5.7GHz) test channels									  
+#   5500        1    -68    0    -88    0      0     0    1111     110  28.0  100.0   180.0    3   11111/11111   110    28.0   1     11     99.0   179.0
+#   5520        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11     99.0   179.0
+#   5540        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   5560        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   5580        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   5600        1    -68    0    -88    0      0     0    1111     110  28.0  100.0   180.0    3   11111/11111   110    28.0   1     11  99.0   179.0
+#   5620        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   5640        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   5660        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   5680        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   5700        1    -68    0    -88    0      0     0    1111     110  28.0  100.0   180.0    3   11111/11111   110    28.0   1     11  99.0   179.0
+													 
+# MKK (5.15-5.25GHz) test channels									  
+#   5170        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   5190        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   5210        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   5230        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+													  
+# MKK (4.9-5.1GHz) test channels									  
+#   4900        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   4920        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   4940        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   4960        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   4980        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   5040        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   5060        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+#   5080        1    -68    0    -88    0      0     0    1111     100  28.0  100.0   180.0    3   11111/11111   100    28.0   1     11  99.0   179.0
+													  
+#END_11a_TEST_CHANNEL_MATRIX  										  
+													  
+													  
+													  
+													  
+													  
+													  
+													  
+##############################################################									  
+###  calsetup specific to 11g CCK mode (refered to as 11b) ###									  
+##############################################################									  
+DO_CCK_IN_11G                 = 1;      # Set to enable 11b tests to be done using 11g CCK mode
+11b_GOLDEN_TX_POWER           = 18; 	# Desired output power from the GU for 11b RXSEN test (double)	  
+11b_MAX_POWER_CAP             = 20;     # Cap power measurements during calibration			  
+FORCE_PIERS_11b	              = 1;	# calibrate power only at channels in the FORCE_PIERS_LIST_11b	  
+FORCE_PIERS_LIST_11b          = 2412, 2472, 2484;	# a maximum of up to 3 piers. 			  
+11b_READ_FROM_FILE	      = 0;	# skip 11b cal. read data from a file instead.			  
+11b_RAW_DATA_FILENAME	      = cal_AR5211_power_11b.log;    # read 11b data from this file		  
+			        									  
+# 11b mode test flags	        									  
+11b_TEST_SPEC_MASK            = 0;      # Test spectral mask at 11b test frequencies 			  
+11b_TEST_TXPER                = 0;      # Test Transmit Packet Error Rate at 11b test frequencies 	  
+11b_TEST_RXSEN                = 0;      # Test Receive Sensitivity at 11b test frequencies 		  
+11b_TEST_TARGET_POWER         = 0;      # Test Target Power at 11b test frequencies 			  
+11b_TEST_THROUGHPUT           = 0;		# Test 11b hardware transmit throughput							  
+11b_TEST_RX_THROUGHPUT        = 0;      # Test 11b hardware receive throughput
+11b_TEST_CURR_CNSMPN_TX	      = 0;	    # Test power consumption for 11b tx
+11b_TEST_CURR_CNSMPN_RX	      = 0;	    # Test power consumption for 11b rx
+													  
+													  
+#BEGIN_11b_TEST_CHANNEL_MATRIX  									  
+#   Ch       PER   SEN  LO_RT  LO_RT  MASK  TGT_PWR  TPUT   TPUT    MULTI   TPUT  TP RX  CURR
+#            SEN   TGT   SEN    SEN   TEST   TEST    TEST   PASS	CHAIN    RX   PASS   CONSUM		  
+#            TEST  dBm  TEST    TGT	  MASK                 THRESH   TESTS   TEST  THRSH  rx tx 
+													  
+   2412        1   -85    0     -90	   0     1111     1     6.0       3      1    6.0     11
+   2417        1   -85    0     -90	   0     1111     1     6.0       3      1    6.0     11
+   2422        1   -85    0     -90	   0     1111     1     6.0       3      1    6.0     11
+   2427        1   -85    0     -90	   0     1111     1     6.0       3      1    6.0     11
+   2432        1   -85    0     -90	   0     1111     1     6.0       3      1    6.0     11
+   2437        1   -85    0     -90        0     1111     1     6.0       3      1    6.0     11
+   2442        0   -85    0     -90	   1     1111     0     6.0       3      1    6.0     11
+   2447        1   -85    0     -90	   0     1111     1     6.0       3      1    6.0     11
+   2452        1   -85    0     -90	   0     1111     1     6.0       3      1    6.0     11
+   2457        1   -85    0     -90	   0     1111     1     6.0       3      1    6.0     11
+   2462        1   -85    0     -90	   0     1111     1     6.0       3      1    6.0     11
+   2467        1   -85    0     -90	   0     1111     1     6.0       3      1    6.0     11
+   2472        1   -85    0     -90	   0     1111     1     6.0       3      1    6.0     11
+#  2484        1   -85    0     -90	   0     1111     1     6.0       3      1    6.0     11
+													  
+#END_11b_TEST_CHANNEL_MATRIX  										  
+													  
+													  
+													  
+													  
+													  
+													  
+#######################################									  
+###  calsetup specific to 11g mode  ###									  
+#######################################									  
+11g_GOLDEN_TX_POWER           = 5; 	# Desired output power from the GU for 11g RXSEN test (double)	  
+11g_MAX_POWER_CAP             = 20;     # Cap power measurements during calibration			  
+FORCE_PIERS_11g	              = 1;	# calibrate power only at channels in the FORCE_PIERS_LIST	  
+#FORCE_PIERS_LIST_11g          = 2412, 2437, 2467;	# a maximum of up to 3 piers.			  
+FORCE_PIERS_LIST_11g          = 2412, 2442, 2472;	# a maximum of up to 3 piers.			  
+###FORCE_PIERS_LIST_11g          = 2412, 2417, 2422, 2427, 2432, 2437, 2442, 2447, 2452, 2457, 2462, 2467, 2472, 2484;  # DVT channels
+11g_READ_FROM_FILE	      = 0;	# skip 11g cal. read data from a file instead.			  
+11g_RAW_DATA_FILENAME	      = cal_AR5211_power_11g.log;    # read 11g data from this file		  
+			        									  
+# 11g mode test flags	        									  
+11g_TEST_SPEC_MASK            = 1;      # Test spectral mask at 11g test frequencies 			  
+11g_TEST_CHANNEL_ACCURACY     = 1;      # Test using spectrum analyzer the 11g channel accuracy in PPM
+11g_TEST_TXPER	              = 1;      # Test Transmit Packet Error Rate at 11g test frequencies 	  
+11g_TEST_RXSEN	              = 1;      # Test Receive Sensitivity at 11g test frequencies 		  
+11g_TEST_TARGET_POWER         = 1;      # Test Target Power at 11g test frequencies 			  
+11g_TEST_DATA_INTEGRITY	      = 0;      # Test memory by performing data comparison for long packets 	  
+11g_TEST_THROUGHPUT           = 0;		# Test 11g hardware transmit throughput							  
+11g_TEST_RX_THROUGHPUT        = 0;      # Test 11g hardware receive throughput
+11g_TEST_CURR_CNSMPN_TX	      = 0;	    # Test power consumption for 11g tx
+11g_TEST_CURR_CNSMPN_RX	      = 0;	    # Test power consumption for 11g rx
+													  
+11g_SEN_BACKOFF_HT40          = 3;
+													  
+#Note: Throughput test limits are set based on 2 stream tx and rx												  
+#BEGIN_11g_TEST_CHANNEL_MATRIX  									  
+#   Ch       PER   SEN  LO_RT  LO_RT   MASK   TGT_PWR  TPUT  TPUT     HT20    HT40   MULTI   TGT_PWR       TPUT  TP RX  CHAN   CURR   HT20   HT40
+#            SEN   TGT   SEN   SEN     TEST   TEST     TEST  PASS     TPUT    TPUT   CHAIN   MASK           RX   PASS   ACCUR  CONSUM TP RX  TP RX
+#            TEST  dBm   TEST  TGT            MASK           THRESH   THRESH  THRESH TESTS   HT20/40       TEST  THRSH         rx tx  THRESH THRESH
+					                					  
+   2412       1	   -68	  1    -88  10100001  1111     110    28.0     50.0    90.0     1    11111/00000   111    28.0    1     11     49.0  89.0
+#  2417       1	   -68	  0    -88       0    1111     100    28.0     50.0    90.0     1    11111/00000   100    28.0    1     11     49.0  89.0
+#  2422       1	   -68	  0    -88       0    1111     110    28.0     50.0    90.0     1    11111/00000   110    28.0    1     11     49.0  89.0 
+#  2427       1	   -68	  0    -88       0    1111     100    28.0     50.0    90.0     1    11111/00000   100    28.0    1     11     49.0  89.0
+#  2432       1	   -68	  0    -88       0    1111     100    28.0     50.0    90.0     1    11111/00000   110    28.0    1     11     49.0  89.0
+   2437       1	   -68	  1    -88  10100001  1111     110    28.0     50.0    90.0     1    11111/00000   110    28.0    1     11     49.0  89.0
+#  2442       1	   -68	  0    -88       0    1111     100    28.0     50.0    90.0     1    11111/00000   110    28.0    1     11     49.0  89.0
+#  2447       1	   -68	  0    -88       0    1111     100    28.0     50.0    90.0     1    11111/00000   100    28.0    1     11     49.0  89.0
+#   2452       1	   -68	  0    -88  10100001  1111     110    28.0     50.0    90.0     1    11111/00000   110    28.0    1     11     49.0  89.0
+#  2457       1	   -68	  0    -88       0    1111     100    28.0     50.0    90.0     1    11111/00000   100    28.0    1     11     49.0  89.0
+  2462       1	   -68	  1    -88  10100001  1111     110    28.0     50.0    90.0     1    11111/00000   110    28.0    1     11     49.0  89.0
+#  2467       1	   -68	  0    -88       0    1111     100    28.0     50.0    90.0     1    11111/00000   100    28.0    1     11     49.0  89.0
+#  2472       1	   -68	  0    -88       0    1111     110    28.0     50.0    90.0     1    11111/00000   110    28.0    1     11     49.0  89.0
+#  2484       1	   -68	  0    -88  10100001  1111     100    28.0     50.0    90.0     1    11111/11111   100    28.0    1     11     49.0  89.0
+
+#END_11g_TEST_CHANNEL_MATRIX  
+
+		                
+
+#######################################
+###  ATE CAL data                   ###
+#######################################
+#ATE_CAL_CHANS_5G              = 5180, 5230, 5300, 5400, 5500, 5650, 5725, 5825; # a maximum of up to 8 piers.
+ATE_CAL_CHANS_2G              = 2412, 2442, 2472; # a maximum of up to 4 piers.
+ATE_GOLDEN_THERM              = 117;
+ATE_GOLDEN_VOLT               = 0;
+ATE_TXGAIN_ENTRY              = 22;
+ATE_PCDAC                     = 59;
+ATE_GOLDEN_VTESTLCODE         = 20;
+ATE_GOLDEN_VTESTLVOLT         = 4;
+ATE_GOLDEN_VTESTHCODE         = 218;
+ATE_GOLDEN_VTESTHVOLT         = 8;
+###  End of ATE CAL data  ###
+
+###  system characterized zeroCAL data ###
+SYSTEM_GOLDEN_THERM           = 130;
+OLPC_ZEROCAL_GOLDEN           =1;
+
+###  OLPC CAL tuning ###
+OLPC_MAX_MEASPWR_GOOD         =31;
+OLPC_MIN_MEASPWR_GOOD         =20;
+OLPC_HT40_PWRDELTA            =5;
+OLPC_CCK_PWRDELTA             =6;
+
+
